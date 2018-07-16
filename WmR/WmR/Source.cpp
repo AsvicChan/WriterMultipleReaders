@@ -5,7 +5,8 @@
 
 int main()
 {
-	Controller controller;
+	int n = 3;
+	Controller<int> controller(n);
 	Writer writer(controller);
 	Reader reader1(1, controller);
 	Reader reader2(2, controller);

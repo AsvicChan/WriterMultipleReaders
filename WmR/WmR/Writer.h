@@ -8,7 +8,7 @@ class Writer
 {
 private:
 	
-	Controller& controller_;
+	Controller<int>& controller_;
 	void write()
 	{
 		for (int i = 0; i != 100; ++i)
@@ -22,7 +22,7 @@ private:
 
 public:
 
-	Writer(Controller& controller) : controller_(controller), thread_(&Writer::write, this)
+	Writer(Controller<int>& controller) : controller_(controller), thread_(&Writer::write, this)
 	{
 		
 	};

@@ -8,7 +8,7 @@ class Reader
 {
 private:
 	int id_;
-	Controller& controller_;
+	Controller<int>& controller_;
 	void read()
 	{
 		for (int i = 0; i != 1000000; ++i)
@@ -22,7 +22,7 @@ private:
 
 public:
 
-	Reader(int id, Controller& controller) : controller_(controller), id_(id), thread_(&Reader::read, this)
+	Reader(int id, Controller<int>& controller) : controller_(controller), id_(id), thread_(&Reader::read, this)
 	{
 
 	};

@@ -2,16 +2,17 @@
 #include <condition_variable>
 #include <mutex>
 
+template <typename T>
 class Controller
 {
 private:
-	int value_;
+	T& value_;
 	std::mutex mutex_;
 	std::condition_variable cv_;
 	bool writing;
 public:
 
-	Controller()
+	Controller(T& value) : value_(value)
 	{
 
 	};
@@ -21,7 +22,7 @@ public:
 
 	};
 
-	void changeValue(int newvalue)
+	void changeValue(T& newvalue)
 	{
 		std::lock_guard<std::mutex> lock(mutex_);
 		writing = true;
